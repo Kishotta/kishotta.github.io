@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /norobots/
+
+Sitemap: https://kishotta.github.io/kishotta.github.io/sitemap.xml
