@@ -23,17 +23,20 @@ jobs:
               with:
                   node-version: "20"
                   cache: "npm"
+                  cache-dependency-path: "my-app/package-lock.json"
 
             - name: Install dependencies
+              working-directory: ./my-app
               run: npm ci
 
             - name: Build the project
+              working-directory: ./my-app
               run: npm run build -- --configuration production --base-href /
 
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: "./dist/kishotta.github.io/browser"
+                  path: "./my-app/dist/my-app/browser"
 
     deploy:
         environment:
