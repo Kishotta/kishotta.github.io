@@ -1,5 +1,12 @@
 /* Resume specific styles */
 
+/* Hide decorative icons in print/reader view */
+@media print {
+  svg:not([role="img"]) {
+    display: none;
+  }
+}
+
 /* Halftone pattern in corners */
 .halftone-pattern {
   position: relative;
