@@ -57,7 +57,7 @@ export class ResumeComponent implements OnInit {
     location: 'Tulsa, Oklahoma',
     linkedin: 'linkedin.com/in/connor-eaves',
     github: 'github.com/Kishotta',
-    website: 'kishotta.github.io',
+    website: 'www.connoreaves.dev',
   };
 
   // Profile Summary
