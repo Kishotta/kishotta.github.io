@@ -9,8 +9,8 @@
 .halftone-pattern::after {
   content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 1200px;
+  height: 1200px;
   pointer-events: none;
   background-image: radial-gradient(circle, currentColor 3px, transparent 3px);
   background-size: 20px 20px;
@@ -38,6 +38,6 @@
 /* Dark mode - more visible */
 :host-context(.dark) .halftone-pattern::before,
 :host-context(.dark) .halftone-pattern::after {
-  opacity: 0.08;
+  opacity: 0.04;
   background-image: radial-gradient(circle, white 3px, transparent 3px);
 }

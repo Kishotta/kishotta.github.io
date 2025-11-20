@@ -61,8 +61,11 @@ export class ResumeComponent implements OnInit {
   };
 
   // Profile Summary
-  profile =
-    'Software Engineer with >6 years of experience in developing scalable, observable, robust web applications, and staying up to date with .Net ecosystem best practices, trends, developments, and innovations. My goal is to use my knowledge and abilities to deliver high quality software that helps improve the lives of my users by providing useful, intuitive, and secure tools to enhance their productivity, and provide necessary services. I focus on predictable, clean, maintainable, self-documenting, extensible code that ensures a positive developer experience for anyone sharing a codebase with me.';
+  profile = [
+    'Software Engineer with over 6 years of experience in developing scalable, observable, robust web applications, and staying up to date with .Net ecosystem best practices, trends, developments, and innovations.',
+    'My goal is to use my knowledge and abilities to deliver high quality software that helps improve the lives of my users by providing useful, intuitive, and secure tools to enhance their productivity, and provide necessary services.',
+    'I focus on predictable, clean, maintainable, self-documenting, extensible code that ensures a positive developer experience for anyone sharing a codebase with me.',
+  ];
 
   // Skills
   skills = {

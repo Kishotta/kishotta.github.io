@@ -1,8 +1,8 @@
 <article
-  class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
+  class="min-h-screen bg-gray-50 dark:bg-gray-900 sm:py-12 sm:px-4 md:px-6 lg:px-8 transition-colors duration-300"
 >
   <div
-    class="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-2xl dark:shadow-blue-500/20 rounded-lg overflow-hidden transition-all duration-300 ring-1 ring-gray-200 dark:ring-blue-500/30"
+    class="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-2xl dark:shadow-blue-500/20 sm:rounded-lg overflow-hidden transition-all duration-300 ring-1 ring-gray-200 dark:ring-blue-500/30"
   >
     <!-- Dark Mode Toggle -->
     <div class="absolute top-4 right-4 z-10">
@@ -204,11 +204,15 @@
             Profile
           </h2>
         </div>
-        <p
-          class="text-gray-700 dark:text-gray-300 leading-relaxed text-justify transition-colors duration-300 pl-14"
-        >
-          {{ profile }}
-        </p>
+        <div class="space-y-4 pl-14">
+          @for (paragraph of profile; track $index) {
+          <p
+            class="text-gray-700 dark:text-gray-300 leading-relaxed text-justify transition-colors duration-300"
+          >
+            {{ paragraph }}
+          </p>
+          }
+        </div>
       </section>
 
       <!-- Skills Section -->
@@ -237,7 +241,7 @@
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pl-14">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pl-14">
           <div>
             <h3
               class="font-semibold text-lg text-gray-800 dark:text-gray-200 mb-3 flex items-center gap-2 transition-colors duration-300"
