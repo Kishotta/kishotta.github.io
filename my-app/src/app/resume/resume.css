@@ -1,1 +1,43 @@
 /* Resume specific styles */
+
+/* Halftone pattern in corners */
+.halftone-pattern {
+  position: relative;
+}
+
+.halftone-pattern::before,
+.halftone-pattern::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  background-image: radial-gradient(circle, currentColor 3px, transparent 3px);
+  background-size: 20px 20px;
+  opacity: 0.08;
+  transition: opacity 300ms;
+  z-index: 1;
+}
+
+/* Top-left corner */
+.halftone-pattern::before {
+  top: 0;
+  left: 0;
+  mask-image: radial-gradient(ellipse 100% 100% at top left, black 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at top left, black 0%, transparent 65%);
+}
+
+/* Bottom-right corner */
+.halftone-pattern::after {
+  bottom: 0;
+  right: 0;
+  mask-image: radial-gradient(ellipse 100% 100% at bottom right, black 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at bottom right, black 0%, transparent 65%);
+}
+
+/* Dark mode - more visible */
+:host-context(.dark) .halftone-pattern::before,
+:host-context(.dark) .halftone-pattern::after {
+  opacity: 0.08;
+  background-image: radial-gradient(circle, white 3px, transparent 3px);
+}
