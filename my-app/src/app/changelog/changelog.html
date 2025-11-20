@@ -1,0 +1,134 @@
+<div class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+  <div class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Changelog</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">A history of changes to this site</p>
+    </div>
+
+    <!-- Error Message -->
+    @if (gitService.error()) {
+    <div
+      class="mb-8 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+    >
+      <p class="text-red-800 dark:text-red-200">{{ gitService.error() }}</p>
+    </div>
+    }
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="absolute left-0 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 ml-4"></div>
+
+      <!-- Commits -->
+      <div class="space-y-8">
+        @for (commit of gitService.commits(); track commit.sha) {
+        <div class="relative pl-12">
+          <!-- Timeline dot -->
+          <div
+            class="absolute left-0 top-2 w-8 h-8 bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-blue-400 rounded-full"
+          ></div>
+
+          <!-- Commit card -->
+          <div
+            class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200 dark:border-gray-700"
+          >
+            <!-- Commit header -->
+            <div class="flex items-start justify-between mb-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex-1">
+                {{ getCommitTitle(commit.message) }}
+              </h3>
+            </div>
+
+            <!-- Commit body (if exists) -->
+            @if (hasCommitBody(commit.message)) {
+            <div
+              class="prose prose-sm dark:prose-invert max-w-none mb-3 prose-headings:font-semibold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900 prose-code:text-gray-800 dark:prose-code:text-gray-200"
+              [innerHTML]="getCommitBody(commit.message) | markdown"
+            ></div>
+            }
+
+            <!-- Commit metadata -->
+            <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+                <span>{{ commit.author }}</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>{{ getRelativeTime(commit.date) }}</span>
+              </div>
+              <a
+                [href]="commit.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+                <span>View on GitHub</span>
+              </a>
+              <span class="font-mono text-xs bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">
+                {{ commit.sha.substring(0, 7) }}
+              </span>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+
+      <!-- Loading state -->
+      @if (gitService.loading()) {
+      <div class="flex justify-center py-8">
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+      </div>
+      }
+
+      <!-- Load more button -->
+      @if (!gitService.loading() && gitService.hasMore() && gitService.commits().length > 0) {
+      <div class="flex justify-center mt-12">
+        <button
+          (click)="loadMore()"
+          class="px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+        >
+          Show More
+        </button>
+      </div>
+      }
+
+      <!-- End of commits message -->
+      @if (!gitService.loading() && !gitService.hasMore() && gitService.commits().length > 0) {
+      <div class="text-center mt-12 text-gray-500 dark:text-gray-400">
+        <p>You've reached the beginning of time 🎉</p>
+      </div>
+      }
+
+      <!-- Empty state -->
+      @if (!gitService.loading() && gitService.commits().length === 0 && !gitService.error()) {
+      <div class="text-center py-12 text-gray-500 dark:text-gray-400">
+        <p>No commits found</p>
+      </div>
+      }
+    </div>
+  </div>
+</div>

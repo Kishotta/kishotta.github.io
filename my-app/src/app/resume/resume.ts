@@ -1,4 +1,5 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-resume',
@@ -7,43 +8,8 @@ import { Component, OnInit, signal } from '@angular/core';
   templateUrl: './resume.html',
   styleUrl: './resume.css',
 })
-export class ResumeComponent implements OnInit {
-  // Theme state
-  isDarkMode = signal(false);
-
-  ngOnInit() {
-    // Check localStorage for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    // Use saved preference, or fall back to system preference
-    this.isDarkMode.set(savedTheme === 'dark' || (!savedTheme && prefersDark));
-    this.applyTheme();
-  }
-
-  toggleTheme() {
-    this.isDarkMode.update((dark) => !dark);
-    this.applyTheme();
-  }
-
-  private applyTheme() {
-    const theme = this.isDarkMode() ? 'dark' : 'light';
-    const htmlElement = document.documentElement;
-
-    if (this.isDarkMode()) {
-      htmlElement.classList.add('dark');
-    } else {
-      htmlElement.classList.remove('dark');
-    }
-
-    localStorage.setItem('theme', theme);
-    console.log(
-      'Theme applied:',
-      theme,
-      'Dark class present:',
-      htmlElement.classList.contains('dark')
-    );
-  }
+export class ResumeComponent {
+  constructor(public themeService: ThemeService) {}
 
   // Personal Information
   name = 'Connor Eaves';
