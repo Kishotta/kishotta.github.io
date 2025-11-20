@@ -33,6 +33,9 @@ jobs:
               working-directory: ./my-app
               run: npm run build -- --configuration production --base-href /
 
+            - name: Copy index.html to 404.html for SPA routing
+              run: cp ./my-app/dist/my-app/browser/index.html ./my-app/dist/my-app/browser/404.html
+
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:

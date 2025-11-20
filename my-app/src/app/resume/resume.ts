@@ -87,8 +87,8 @@ export class ResumeComponent {
         'Designed microservice architecture for next-gen services',
         'Designed modular monolith for future functionality',
         'Developed reactive front-end application for next-gen services',
-        'Worked with Infrastructure to introduce IDP &amp; API gateway',
-        'Onboarded &amp; mentored new developers',
+        'Worked with Infrastructure to introduce IDP & API gateway',
+        'Onboarded & mentored new developers',
       ],
     },
     {
@@ -100,7 +100,7 @@ export class ResumeComponent {
       responsibilities: [
         'Helped deliver industry-leading functionality',
         'Maintained legacy SOAP APIs',
-        'Refactored legacy SOAP APIs to support REST &amp; modern architectures',
+        'Refactored legacy SOAP APIs to support REST & modern architectures',
       ],
     },
   ];
