@@ -47,7 +47,7 @@ export class ResumeComponent implements OnInit {
 
   // Personal Information
   name = 'Connor Eaves';
-  handle = 'Kishotta';
+  handle = ''; // Hidden until more online presence is established
   title = 'Software Engineer';
 
   // Contact Information
