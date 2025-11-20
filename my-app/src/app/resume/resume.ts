@@ -70,7 +70,7 @@ export class ResumeComponent implements OnInit {
   // Skills
   skills = {
     languages: ['C#', 'PHP', 'TypeScript'],
-    frameworks: ['.Net', 'Laravel', 'Angular'],
+    frameworks: ['.Net', 'Laravel', 'Angular', 'Unity'],
     tools: [
       'Git',
       'Docker',
