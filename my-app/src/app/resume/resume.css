@@ -3,6 +3,7 @@
 /* Halftone pattern in corners */
 .halftone-pattern {
   position: relative;
+  clip-path: inset(0);
 }
 
 .halftone-pattern::before,
@@ -17,22 +18,22 @@
   opacity: 0.08;
   transition: opacity 300ms;
   z-index: 0;
+  mask-image: radial-gradient(circle, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, black 0%, transparent 70%);
 }
 
 /* Top-left corner */
 .halftone-pattern::before {
-  top: 0;
-  left: 0;
-  mask-image: radial-gradient(ellipse 100% 100% at top left, black 0%, transparent 65%);
-  -webkit-mask-image: radial-gradient(ellipse 100% 100% at top left, black 0%, transparent 65%);
+  top: -600px;
+  left: -600px;
+  transform: rotate(-15deg);
 }
 
 /* Bottom-right corner */
 .halftone-pattern::after {
-  bottom: 0;
-  right: 0;
-  mask-image: radial-gradient(ellipse 100% 100% at bottom right, black 0%, transparent 65%);
-  -webkit-mask-image: radial-gradient(ellipse 100% 100% at bottom right, black 0%, transparent 65%);
+  bottom: -600px;
+  right: -600px;
+  transform: rotate(15deg);
 }
 
 /* Dark mode - more visible */
