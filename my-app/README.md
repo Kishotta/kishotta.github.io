@@ -1,4 +1,9 @@
-# MyApp
+# connoreaves.dev
+
+Personal portfolio website built with Angular. Visit [connoreaves.dev](https://connoreaves.dev) to explore:
+
+- **Resume**: Professional experience, skills, and background
+- **Changelog**: Project updates and development history
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
