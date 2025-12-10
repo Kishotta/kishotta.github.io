@@ -1,0 +1,5 @@
+/* Content card component styles */
+
+:host {
+  display: block;
+}

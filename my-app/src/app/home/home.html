@@ -1,0 +1,340 @@
+<!-- Hero Section -->
+<section class="bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="text-center">
+      <h1
+        class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300"
+      >
+        {{ name }}
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 transition-colors duration-300">
+        {{ title }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Content Sections -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <!-- Skills Overview -->
+  <div class="mb-16">
+    <h2
+      class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center transition-colors duration-300"
+    >
+      Technical Skills
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Languages -->
+      <app-content-card>
+        <div class="flex items-center gap-2 mb-4">
+          <svg
+            class="w-5 h-5 text-blue-600 dark:text-blue-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+            ></path>
+          </svg>
+          <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Languages</h3>
+        </div>
+        <ul class="space-y-2">
+          @for (skill of skills.languages; track skill) {
+          <li class="text-gray-700 dark:text-gray-300 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400 rounded-full"></span>
+            {{ skill }}
+          </li>
+          }
+        </ul>
+      </app-content-card>
+
+      <!-- Frameworks -->
+      <app-content-card>
+        <div class="flex items-center gap-2 mb-4">
+          <svg
+            class="w-5 h-5 text-green-600 dark:text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+            ></path>
+          </svg>
+          <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Frameworks</h3>
+        </div>
+        <ul class="space-y-2">
+          @for (skill of skills.frameworks; track skill) {
+          <li class="text-gray-700 dark:text-gray-300 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-green-600 dark:bg-green-400 rounded-full"></span>
+            {{ skill }}
+          </li>
+          }
+        </ul>
+      </app-content-card>
+
+      <!-- Tools -->
+      <app-content-card>
+        <div class="flex items-center gap-2 mb-4">
+          <svg
+            class="w-5 h-5 text-purple-600 dark:text-purple-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            ></path>
+          </svg>
+          <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Tools</h3>
+        </div>
+        <ul class="space-y-2">
+          @for (skill of skills.tools; track skill) {
+          <li class="text-gray-700 dark:text-gray-300 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-purple-600 dark:bg-purple-400 rounded-full"></span>
+            {{ skill }}
+          </li>
+          }
+        </ul>
+      </app-content-card>
+
+      <!-- Databases -->
+      <app-content-card>
+        <div class="flex items-center gap-2 mb-4">
+          <svg
+            class="w-5 h-5 text-orange-600 dark:text-orange-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+            ></path>
+          </svg>
+          <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Databases</h3>
+        </div>
+        <ul class="space-y-2">
+          @for (skill of skills.databases; track skill) {
+          <li class="text-gray-700 dark:text-gray-300 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 bg-orange-600 dark:bg-orange-400 rounded-full"></span>
+            {{ skill }}
+          </li>
+          }
+        </ul>
+      </app-content-card>
+    </div>
+  </div>
+
+  <!-- Experience and Education Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+    <!-- Work Experience -->
+    <div class="lg:col-span-2">
+      <h2
+        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300"
+      >
+        Recent Experience
+      </h2>
+      <div class="space-y-6">
+        @for (job of recentExperience; track job.company + job.startDate) {
+        <app-content-card>
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+              {{ job.position }}
+            </h3>
+            <p class="text-lg text-blue-600 dark:text-blue-400 font-medium">{{ job.company }}</p>
+            <div
+              class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-600 dark:text-gray-400 mt-2"
+            >
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+                {{ job.location }}
+              </span>
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                {{ job.startDate }} - {{ job.endDate }}
+              </span>
+            </div>
+          </div>
+          <ul class="space-y-2">
+            @for (responsibility of job.responsibilities; track responsibility) {
+            <li class="text-gray-700 dark:text-gray-300 flex items-start gap-2">
+              <svg
+                class="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span>{{ responsibility }}</span>
+            </li>
+            }
+          </ul>
+        </app-content-card>
+        }
+        <div class="text-center pt-4">
+          <a
+            routerLink="/resume"
+            class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+          >
+            View Full Resume
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div>
+      <h2
+        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300"
+      >
+        Education
+      </h2>
+      <div class="space-y-6">
+        @for (edu of education; track edu.institution + edu.graduationDate) {
+        <app-content-card>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ edu.degree }}</h3>
+          <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">{{ edu.institution }}</p>
+          <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
+            <p class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+              {{ edu.location }}
+            </p>
+            <p class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              {{ edu.graduationDate }}
+            </p>
+          </div>
+        </app-content-card>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects & Articles Placeholders -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Projects Card -->
+    <app-content-card>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Projects</h2>
+      <div
+        class="flex items-center justify-center py-12 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg"
+      >
+        <div class="text-center">
+          <svg
+            class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500 mb-3"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+            ></path>
+          </svg>
+          <p class="text-gray-500 dark:text-gray-400 font-medium">Under Construction</p>
+          <p class="text-sm text-gray-400 dark:text-gray-500 mt-1">Coming soon...</p>
+        </div>
+      </div>
+    </app-content-card>
+
+    <!-- Blog Articles Card -->
+    <app-content-card>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Blog Articles</h2>
+      <div
+        class="flex items-center justify-center py-12 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg"
+      >
+        <div class="text-center">
+          <svg
+            class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500 mb-3"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+            ></path>
+          </svg>
+          <p class="text-gray-500 dark:text-gray-400 font-medium">Under Construction</p>
+          <p class="text-sm text-gray-400 dark:text-gray-500 mt-1">Coming soon...</p>
+        </div>
+      </div>
+    </app-content-card>
+  </div>
+</section>

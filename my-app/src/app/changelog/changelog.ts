@@ -2,6 +2,7 @@ import { Component, OnInit, Pipe, PipeTransform, SecurityContext } from '@angula
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GitService } from '../services/git.service';
+import { ContentCardComponent } from '../shared/content-card/content-card';
 import { marked } from 'marked';
 
 @Pipe({
@@ -29,7 +30,7 @@ export class MarkdownPipe implements PipeTransform {
 @Component({
   selector: 'app-changelog',
   standalone: true,
-  imports: [CommonModule, MarkdownPipe],
+  imports: [CommonModule, MarkdownPipe, ContentCardComponent],
   templateUrl: './changelog.html',
   styleUrl: './changelog.css',
 })

@@ -11,6 +11,15 @@ import { ThemeService } from './services/theme.service';
 })
 export class App {
   protected readonly title = signal('my-app');
+  protected readonly mobileMenuOpen = signal(false);
 
   constructor(public themeService: ThemeService) {}
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen.set(!this.mobileMenuOpen());
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen.set(false);
+  }
 }

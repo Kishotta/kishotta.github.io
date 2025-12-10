@@ -5,6 +5,8 @@ Personal portfolio website built with Angular. Visit [connoreaves.dev](https://c
 - **Resume**: Professional experience, skills, and background
 - **Changelog**: Project updates and development history
 
+This project is part of the [roadmap.sh Single Page CV project](https://roadmap.sh/projects/single-page-cv).
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
 ## Development server

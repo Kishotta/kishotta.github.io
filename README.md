@@ -18,3 +18,4 @@ The Angular application is located in the `my-app/` directory. See the [my-app R
 ## roadmap.sh Verification
 
 This project is part of the [roadmap.sh Single Page CV project](https://roadmap.sh/projects/single-page-cv).
+This project is part of the [roadmap.sh Portfolio Website project](https://roadmap.sh/projects/portfolio-website).

@@ -1,9 +1,18 @@
 <nav
   class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-300"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto md:px-6 lg:px-8">
     <div class="flex justify-between h-16">
-      <div class="flex space-x-8">
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-8">
+        <a
+          routerLink="/"
+          routerLinkActive="!border-blue-500 text-blue-600 dark:text-blue-400 font-semibold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="inline-flex items-center px-1 pt-1 border-b-[3px] border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-200"
+        >
+          Home
+        </a>
         <a
           routerLink="/resume"
           routerLinkActive="!border-blue-500 text-blue-600 dark:text-blue-400 font-semibold"
@@ -12,6 +21,36 @@
         >
           Resume
         </a>
+        <span
+          class="inline-flex items-center gap-1.5 px-1 pt-1 border-b-[3px] border-transparent text-sm font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed transition-colors duration-200 opacity-60"
+          title="Coming Soon"
+        >
+          Projects
+          <span
+            class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full font-semibold"
+            >Soon</span
+          >
+        </span>
+        <span
+          class="inline-flex items-center gap-1.5 px-1 pt-1 border-b-[3px] border-transparent text-sm font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed transition-colors duration-200 opacity-60"
+          title="Coming Soon"
+        >
+          Articles
+          <span
+            class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full font-semibold"
+            >Soon</span
+          >
+        </span>
+        <span
+          class="inline-flex items-center gap-1.5 px-1 pt-1 border-b-[3px] border-transparent text-sm font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed transition-colors duration-200 opacity-60"
+          title="Coming Soon"
+        >
+          Contact
+          <span
+            class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full font-semibold"
+            >Soon</span
+          >
+        </span>
         <a
           routerLink="/changelog"
           routerLinkActive="!border-blue-500 text-blue-600 dark:text-blue-400 font-semibold"
@@ -22,8 +61,37 @@
         </a>
       </div>
 
+      <!-- Mobile menu button -->
+      <div class="flex pl-4 md:hidden items-center">
+        <button
+          (click)="toggleMobileMenu()"
+          class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          aria-label="Toggle menu"
+        >
+          @if (mobileMenuOpen()) {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+          } @else {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+          }
+        </button>
+      </div>
+
       <!-- Theme Toggle Button -->
-      <div class="flex items-center">
+      <div class="flex pr-4 items-center">
         <button
           (click)="themeService.toggleTheme()"
           class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 border border-gray-200 dark:border-gray-600"
@@ -63,6 +131,66 @@
         </button>
       </div>
     </div>
+
+    <!-- Mobile menu -->
+    @if (mobileMenuOpen()) {
+    <div class="md:hidden py-3 space-y-1 border-t border-gray-200 dark:border-gray-700">
+      <a
+        routerLink="/"
+        routerLinkActive="!border-blue-500 !text-blue-600 dark:!text-blue-400 font-semibold"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMobileMenu()"
+        class="block py-2 pl-4 pr-4 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-l-[3px] border-transparent"
+      >
+        Home
+      </a>
+      <a
+        routerLink="/resume"
+        routerLinkActive="!border-blue-500 !text-blue-600 dark:!text-blue-400 font-semibold"
+        [routerLinkActiveOptions]="{ exact: false }"
+        (click)="closeMobileMenu()"
+        class="block py-2 pl-4 pr-4 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-l-[3px] border-transparent"
+      >
+        Resume
+      </a>
+      <div
+        class="py-2 pl-4 pr-4 text-base font-medium text-gray-400 dark:text-gray-600 opacity-60 flex items-center gap-2 border-l-[3px] border-transparent"
+      >
+        Projects
+        <span
+          class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full font-semibold"
+          >Soon</span
+        >
+      </div>
+      <div
+        class="py-2 pl-4 pr-4 text-base font-medium text-gray-400 dark:text-gray-600 opacity-60 flex items-center gap-2 border-l-[3px] border-transparent"
+      >
+        Articles
+        <span
+          class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full font-semibold"
+          >Soon</span
+        >
+      </div>
+      <div
+        class="py-2 pl-4 pr-4 text-base font-medium text-gray-400 dark:text-gray-600 opacity-60 flex items-center gap-2 border-l-[3px] border-transparent"
+      >
+        Contact
+        <span
+          class="text-[10px] bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-1.5 py-0.5 rounded-full font-semibold"
+          >Soon</span
+        >
+      </div>
+      <a
+        routerLink="/changelog"
+        routerLinkActive="!border-blue-500 !text-blue-600 dark:!text-blue-400 font-semibold"
+        [routerLinkActiveOptions]="{ exact: false }"
+        (click)="closeMobileMenu()"
+        class="block py-2 pl-4 pr-4 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-l-[3px] border-transparent"
+      >
+        Changelog
+      </a>
+    </div>
+    }
   </div>
 </nav>
 
