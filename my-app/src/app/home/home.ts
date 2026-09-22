@@ -19,32 +19,32 @@ export class HomeComponent {
     languages: ['C#', 'PHP', 'TypeScript', 'F#'],
     frameworks: ['.Net', 'Laravel', 'Angular', 'Unity'],
     tools: ['Git', 'Docker', 'Domain Driven Design', 'Event Based Architecture'],
-    databases: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis'],
+    databases: ['PostgreSQL', 'SQL Server', 'MySQL', 'MongoDB', 'Redis'],
   };
 
   // Recent Experience (limited to most recent positions)
   recentExperience = [
     {
+      position: 'Software Engineer',
+      company: 'Momentum3',
+      location: 'Tulsa, Oklahoma',
+      startDate: 'February 2026',
+      endDate: 'Present',
+      responsibilities: [
+        'Helped port legacy application to updated data store, encompassing frontend, backend, persistence, and ETLs',
+        'Used agentic workflows to enhance productivity',
+        'Optimized and modernized stored procs and SSIS ETL packages',
+      ],
+    },
+    {
       position: 'Software Engineer II',
       company: 'Community Care of Oklahoma',
       location: 'Tulsa, Oklahoma',
       startDate: 'July 2025',
-      endDate: 'Present',
+      endDate: 'February 2026',
       responsibilities: [
-        'Took over manual EDI processes',
-        'Developed strategies for legacy modernization',
-      ],
-    },
-    {
-      position: 'Software Engineer',
-      company: 'TEAM Professional Services',
-      location: 'Tulsa, Oklahoma',
-      startDate: 'November 2020',
-      endDate: 'June 2025',
-      responsibilities: [
-        'Helped introduce unit tests to improve regressions',
-        'Designed modular monolith for future functionality',
-        'Onboarded & mentored new developers',
+        'Inherited manual EDI processes and developed documentation and training for support staff',
+        'Developed strategies for modernizing end-of-life mission critical EDI ingress and egress applications',
       ],
     },
   ];
